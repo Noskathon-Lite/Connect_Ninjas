@@ -34,13 +34,7 @@ while True:
     if not ret:
         print("Failed to capture image. Exiting...")
         break
-
-    # Display the current label on the frame
-    cv2.putText(frame, f"Label: {label}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-
-    # Show the webcam feed
-    cv2.imshow("Webcam", frame)
-
+    
     # Wait for key press
     key = cv2.waitKey(1)
 
@@ -57,6 +51,12 @@ while True:
             file.write(str(img_count["eyes-open"])+","+str(img_count["eyes-close"]))
             file.close()
         break
+    
+    # Display the current label on the frame
+    cv2.putText(frame, f"Label: {label}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+
+    # Show the webcam feed
+    cv2.imshow("Webcam", frame)
 
 # Release resources
 cap.release()
