@@ -3,8 +3,7 @@ import { HashLink } from "react-router-hash-link";
 import image1 from "../assets/image1.png";
 import { Menu, X } from "lucide-react";
 
-// Create a context to share the menu state
-export const MenuContext = React.createContext();
+export const MenuContext = React.createContext(false);
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,20 +13,27 @@ function Navbar() {
   return (
     <MenuContext.Provider value={isMenuOpen}>
       <div className="relative">
+        {/* Add overlay when menu is open */}
+        {isMenuOpen && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden" />
+        )}
+        
         <div className="flex justify-between items-center px-4 md:px-5 py-3 md:py-5">
           <div className="flex items-center gap-2 md:gap-3">
             <img src={image1} className="w-20 md:w-32 rounded-full" alt="Logo" />
             <h1 className="font-bold text-lg md:text-xl">Driver Drowsiness</h1>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden z-20"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile Menu Button - Only show Menu icon here */}
+          {!isMenuOpen && (
+            <button 
+              className="md:hidden z-40"
+              onClick={toggleMenu}
+              aria-label="Open menu"
+            >
+              <Menu size={24} />
+            </button>
+          )}
 
           {/* Desktop Navigation */}
           <nav className="hidden md:block">
@@ -48,10 +54,19 @@ function Navbar() {
 
           {/* Mobile Navigation */}
           <nav
-            className={`fixed md:hidden top-0 right-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-10 ${
+            className={`fixed md:hidden top-0 right-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-40 ${
               isMenuOpen ? "translate-x-0" : "translate-x-full"
             }`}
           >
+            {/* Close button inside the mobile menu */}
+            <button 
+              className="absolute top-4 right-4 z-50"
+              onClick={toggleMenu}
+              aria-label="Close menu"
+            >
+              <X size={24} />
+            </button>
+
             <ul className="flex flex-col gap-4 pt-20 px-6">
               {["Home", "About", "Features", "Contact"].map((item) => (
                 <li key={item}>
@@ -73,4 +88,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;  
+export default Navbar;

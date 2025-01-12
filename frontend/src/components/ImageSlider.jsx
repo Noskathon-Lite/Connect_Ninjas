@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
-import { MenuContext } from "./Navbar";  // Import the context
+import { MenuContext } from "./Navbar";
 import image1 from "../assets/image1.png"
 import image2 from "../assets/image2.png"
 import image3 from "../assets/image3.png"
@@ -16,7 +16,6 @@ export default function ImageSlider() {
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState(null);
   
-  // Get the menu state from context
   const isMenuOpen = useContext(MenuContext);
 
   function handlePrevious() {
@@ -36,7 +35,37 @@ export default function ImageSlider() {
 
   return (
     <div className="relative flex justify-center items-center mt-4 w-full h-[300px] md:h-[450px]">
-      
+      <div className={`absolute inset-0 flex items-center justify-center z-20 ${isMenuOpen ? 'pointer-events-none' : ''}`}>
+        <BsArrowLeftCircleFill
+          className={`arrow left-2 md:left-4 w-6 h-6 md:w-8 md:h-8 cursor-pointer transition-opacity duration-300 ${
+            isMenuOpen ? 'opacity-0' : 'opacity-100'
+          }`}
+          onClick={handlePrevious}
+        />
+
+        <BsArrowRightCircleFill
+          className={`arrow right-2 md:right-4 w-6 h-6 md:w-8 md:h-8 cursor-pointer transition-opacity duration-300 ${
+            isMenuOpen ? 'opacity-0' : 'opacity-100'
+          }`}
+          onClick={handleNext}
+        />
+
+        <span className={`circle-indicators gap-1 md:gap-2 transition-opacity duration-300 ${
+          isMenuOpen ? 'opacity-0' : 'opacity-100'
+        }`}>
+          {images?.map((_, index) => (
+            <button
+              key={index}
+              className={
+                currentSlider === index
+                  ? "current-indicator w-3 h-3 md:w-4 md:h-4"
+                  : "current-indicator inactive-indicator w-3 h-3 md:w-4 md:h-4"
+              }
+              onClick={() => setCurrentSlider(index)}
+            ></button>
+          ))}
+        </span>
+      </div>
 
       {images?.map((image, index) => (
         <img
