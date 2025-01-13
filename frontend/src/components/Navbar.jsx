@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { HashLink } from "react-router-hash-link";
 import image1 from "../assets/image1.png";
-import { Menu, X, ExternalLink } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import TryItNow from "./TryItNow";
 
 export const MenuContext = React.createContext(false);
 
@@ -46,7 +47,7 @@ function Navbar() {
 
         {/* Navbar container with scroll behavior */}
         <div
-          className={`bg-white/80 backdrop-blur-md border-b border-gray-100 transform transition-transform duration-300 ${
+          className={` bg-white/80 backdrop-blur-md border-b border-gray-100 transform transition-transform duration-300 ${
             isNavbarVisible ? "translate-y-0" : "-translate-y-full"
           }`}
         >
@@ -80,15 +81,9 @@ function Navbar() {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:block">
-              <ul className="flex gap-8 font-medium">
+              <ul className="flex gap-8 font-medium items-center" >
                 <li>
-                  <button
-                    onClick={() => window.open("https://example.com", "_blank")}
-                    className="flex items-center gap-2 py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300"
-                  >
-                    Try It Now
-                    <ExternalLink className="w-4 h-4" />
-                  </button>
+                  <TryItNow />
                 </li>
                 {[
                   { name: "Home", path: "/#" },
@@ -103,7 +98,6 @@ function Navbar() {
                       className="relative text-gray-600 hover:text-blue-600 transition-colors duration-300 py-2"
                     >
                       {item.name}
-                      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
                     </HashLink>
                   </li>
                 ))}
@@ -129,6 +123,9 @@ function Navbar() {
 
           <div className="pt-16 px-6">
             <ul className="flex flex-col gap-4">
+              <li>
+                <TryItNow />
+              </li>
               {[
                 { name: "Home", path: "/#" },
                 { name: "About", path: "#about" },

@@ -1,5 +1,7 @@
 import React from "react";
 import About from "./About";
+import Features from "./Features";
+import Contact from "./Contact";
 
 function Home() {
   return (
@@ -9,13 +11,11 @@ function Home() {
       </section>
 
       <section id="features" className="min-h-screen p-4 md:p-10 bg-gray-200">
-        <h2 className="text-2xl md:text-3xl font-bold mb-4">Features</h2>
-        <p className="text-base md:text-lg">This is the Features section.</p>
+        <Features />
       </section>
 
       <section id="contact" className="min-h-screen p-4 md:p-10 bg-gray-300">
-        <h2 className="text-2xl md:text-3xl font-bold mb-4">Contact</h2>
-        <p className="text-base md:text-lg">This is the Contact section.</p>
+        <Contact />
       </section>
     </div>
   );

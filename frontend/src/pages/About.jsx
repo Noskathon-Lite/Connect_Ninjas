@@ -1,81 +1,46 @@
 import React from "react";
-import { Camera, AlertTriangle, LineChart, Shield } from "lucide-react";
 
-const About = () => {
-  const features = [
-    {
-      icon: <Camera className="w-8 h-8 text-blue-500" />,
-      title: "Computer Vision Detection",
-      description: "Advanced real-time monitoring using computer vision technology to detect signs of driver drowsiness with high accuracy."
-    },
-    {
-      icon: <LineChart className="w-8 h-8 text-green-500" />,
-      title: "Real-time Analysis",
-      description: "Continuous monitoring and analysis of driver behavior through camera feeds, providing instant feedback and assessment."
-    },
-    {
-      icon: <AlertTriangle className="w-8 h-8 text-red-500" />,
-      title: "Timely Alerts",
-      description: "Proactive alert system that warns drivers when drowsiness levels exceed safety thresholds, preventing potential accidents."
-    },
-    {
-      icon: <Shield className="w-8 h-8 text-purple-500" />,
-      title: "Enhanced Safety",
-      description: "Particularly effective for long-distance vehicles and trucks, significantly reducing accident risks during extended journeys."
-    }
-  ];
-
+function About() {
   return (
-    <div className="px-4 py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400">
-            Driver Drowsiness Detection
-          </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-            An innovative safety system using advanced computer vision to protect drivers and prevent accidents caused by drowsiness.
-          </p>
-        </div>
+    <div className="max-w-7xl mx-auto px-4 md:px-6 py-8">
+      {/* Header */}
+      <div className="text-center mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400">
+          Driver Drowsiness Detection
+        </h2>
+        <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          An innovative safety system using advanced computer vision to protect
+          drivers and prevent accidents caused by drowsiness.
+        </p>
+      </div>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-16">
-          {features.map((feature, index) => (
-            <div 
-              key={index}
-              className="bg-white p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100"
-            >
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-gray-50 rounded-lg">
-                  {feature.icon}
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-gray-800">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {feature.description}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+      {/* Tech Stack */}
+      <div className="text-center mb-16">
+        <h3 className="text-2xl md:text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400">
+          Tech Stack
+        </h3>
+        <ul className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto list-disc list-outside">
+          <li className="block">React.js for the Frontend</li>
+          <li className="block">TensorFlow.js for Dataset Model</li>
+          <li className="block">Haar Cascades for Eye Detection</li>
+          <li className="block">OpenCV for Computer Vision</li>
+        </ul>
+      </div>
 
-        {/* Impact Section */}
-        <div className="bg-blue-50 p-8 md:p-12 rounded-3xl">
-          <div className="max-w-3xl mx-auto text-center">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-blue-800">
-              Potential Impact
-            </h3>
-            <p className="text-lg text-blue-900/80 leading-relaxed">
-              This technology has the potential to revolutionize road safety, becoming a standard safety measure for all long-distance travel vehicles. By preventing drowsiness-related accidents, we can save lives and make roads safer for everyone.
-            </p>
-          </div>
-        </div>
+      {/* Additional Information */}
+      <div className="text-center">
+        <h3 className="text-2xl md:text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400">
+          Additional Information
+        </h3>
+        <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-4">
+          Our system continuously monitors the driver's facial expressions and eye movements to detect signs of drowsiness. If drowsiness is detected, the system alerts the driver through auditory signals, helping to prevent potential accidents.
+        </p>
+        <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          The system is designed to be easily integrated into existing vehicles and can be customized to meet the specific needs of different users. Our goal is to enhance road safety and save lives by reducing the number of accidents caused by driver drowsiness.
+        </p>
       </div>
     </div>
   );
-};
+}
 
 export default About;
