@@ -20,10 +20,10 @@ function About() {
           Tech Stack
         </h3>
         <ul className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto list-disc list-outside">
-          <li className="block">React.js for the Frontend</li>
-          <li className="block">TensorFlow.js for Dataset Model</li>
-          <li className="block">Haar Cascades for Eye Detection</li>
-          <li className="block">OpenCV for Computer Vision</li>
+          <li className="block"><strong>React.js</strong> for the Frontend</li>
+          <li className="block"><strong>TensorFlow.js</strong> for Dataset Model</li>
+          <li className="block"><strong>Haar Cascades</strong> for Eye Detection</li>
+          <li className="block"><strong>OpenCV</strong> for Computer Vision</li>
         </ul>
       </div>
 

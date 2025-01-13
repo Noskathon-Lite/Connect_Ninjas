@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { HashLink } from "react-router-hash-link";
-import image1 from "../assets/image1.png";
+import logo from "../assets/logo.png";
 import { Menu, X } from "lucide-react";
 import TryItNow from "./TryItNow";
 
@@ -52,10 +52,10 @@ function Navbar() {
           }`}
         >
           <div className="max-w-7xl mx-auto flex justify-between items-center px-4 md:px-6 py-4">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 ">
               <img
-                src={image1}
-                className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border-2 border-blue-100 shadow-md cursor-pointer"
+                src={logo}
+                className="w-16 h-16 md:w-[4.5rem] md:h-[4.5rem] rounded-full object-cover border-2 border-blue-100 shadow-md cursor-pointer"
                 alt="Logo"
               />
               <div>
