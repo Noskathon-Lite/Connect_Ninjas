@@ -75,7 +75,7 @@ export default function ImageSlider() {
           src={image.url}
           className={
             currentSlider === index
-              ? "current-image px-2 md:px-0"
+              ? "current-image "
               : "current-image hidden"
           }
         />
