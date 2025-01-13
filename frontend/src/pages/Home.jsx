@@ -10,11 +10,11 @@ function Home() {
         <About />
       </section>
 
-      <section id="features" className="min-h-screen p-4 md:p-10 bg-gray-200">
+      <section id="features" className="min-h-screen p-4 md:p-10 bg-gray-100">
         <Features />
       </section>
 
-      <section id="contact" className="min-h-screen p-4 md:p-10 bg-gray-300">
+      <section id="contact" className="min-h-screen p-4 md:p-10 bg-gray-100">
         <Contact />
       </section>
     </div>
