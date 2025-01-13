@@ -35,13 +35,14 @@ export default function ImageSlider() {
 
   return (
     <div className="relative flex justify-center items-center mt-4 w-full h-[300px] md:h-[450px]">
-      <div className={`absolute inset-0 flex items-center justify-center z-20 ${isMenuOpen ? 'pointer-events-none' : ''}`}>
+      <div className={`absolute inset-0 flex items-center justify-center z-20 `}>
         <BsArrowLeftCircleFill
           className={`arrow left-2 md:left-4 w-6 h-6 md:w-8 md:h-8 cursor-pointer transition-opacity duration-300 ${
             isMenuOpen ? 'opacity-0' : 'opacity-100'
           }`}
           onClick={handlePrevious}
         />
+        
 
         <BsArrowRightCircleFill
           className={`arrow right-2 md:right-4 w-6 h-6 md:w-8 md:h-8 cursor-pointer transition-opacity duration-300 ${
